@@ -24,14 +24,39 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Heebo', sans-serif;
   background: var(--ocean-deep);
   color: var(--white);
   overflow-x: hidden;
+}
+
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-switcher {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  margin-inline-start: 1rem;
+}
+.lang-btn {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: rgba(255,255,255,0.6);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.lang-btn:hover { color: var(--white); border-color: var(--aqua); }
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--aqua), var(--ocean-light));
+  color: var(--white);
+  border-color: var(--aqua);
 }
 
 /* ===== ANIMATED BACKGROUND WAVES ===== */
@@ -93,6 +118,11 @@ body {
   -webkit-text-fill-color: transparent;
   text-decoration: none;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -115,6 +145,10 @@ body {
   height: 2px;
   background: var(--aqua);
   transition: width 0.3s;
+}
+html[dir="ltr"] .nav-links a::after {
+  right: auto;
+  left: 0;
 }
 .nav-links a:hover { color: var(--aqua); }
 .nav-links a:hover::after { width: 100%; }
@@ -336,9 +370,7 @@ section {
   gap: 2rem;
   margin-top: 2rem;
 }
-.stat-item {
-  text-align: center;
-}
+.stat-item { text-align: center; }
 .stat-number {
   font-family: 'Rubik', sans-serif;
   font-size: 2.5rem;
@@ -365,7 +397,6 @@ section {
   overflow: hidden;
   aspect-ratio: 3/4;
   cursor: pointer;
-  group: true;
 }
 .activity-card img {
   width: 100%;
@@ -401,12 +432,9 @@ section {
   transition: max-height 0.5s ease;
 }
 .activity-card:hover p { max-height: 100px; }
-.activity-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+.activity-icon { font-size: 2rem; margin-bottom: 0.5rem; }
 
-/* ===== PROJECTS (Horizontal Scroll) ===== */
+/* ===== PROJECTS ===== */
 .projects-section {
   background: linear-gradient(180deg, transparent, rgba(233,30,140,0.05), transparent);
 }
@@ -434,10 +462,7 @@ section {
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
-.project-card-img {
-  height: 220px;
-  overflow: hidden;
-}
+.project-card-img { height: 220px; overflow: hidden; }
 .project-card-img img {
   width: 100%;
   height: 100%;
@@ -445,9 +470,7 @@ section {
   transition: transform 0.5s;
 }
 .project-card:hover .project-card-img img { transform: scale(1.08); }
-.project-card-body {
-  padding: 1.5rem;
-}
+.project-card-body { padding: 1.5rem; }
 .project-tag {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -471,11 +494,8 @@ section {
   line-height: 1.7;
 }
 
-/* ===== GALLERY MASONRY ===== */
-.gallery-grid {
-  columns: 4;
-  column-gap: 1rem;
-}
+/* ===== GALLERY ===== */
+.gallery-grid { columns: 4; column-gap: 1rem; }
 .gallery-item {
   break-inside: avoid;
   margin-bottom: 1rem;
@@ -604,10 +624,7 @@ section {
   margin-bottom: 0.3rem;
   font-weight: 400;
 }
-.contact-item span {
-  font-size: 1.05rem;
-  color: var(--white);
-}
+.contact-item span { font-size: 1.05rem; color: var(--white); }
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -627,13 +644,9 @@ section {
   backdrop-filter: blur(10px);
 }
 .contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--aqua);
-}
+.contact-form textarea:focus { border-color: var(--aqua); }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.35);
-}
+.contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
 .contact-form textarea { resize: vertical; min-height: 120px; }
 
 /* ===== FOOTER ===== */
@@ -658,10 +671,7 @@ section {
   transition: color 0.3s;
 }
 .footer-links a:hover { color: var(--aqua); }
-.footer p {
-  color: rgba(255,255,255,0.3);
-  font-size: 0.85rem;
-}
+.footer p { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
 .social-links {
   display: flex;
   justify-content: center;
@@ -729,10 +739,7 @@ section {
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
@@ -760,6 +767,8 @@ section {
   .stats-row { flex-wrap: wrap; }
   .project-card { flex: 0 0 85vw; }
   .activities-grid { grid-template-columns: 1fr 1fr; }
+  .lang-switcher { margin-inline-start: 0.5rem; }
+  .lang-btn { padding: 0.25rem 0.45rem; font-size: 0.7rem; }
 }
 @media (max-width: 480px) {
   .gallery-grid { columns: 2; }
@@ -774,47 +783,54 @@ section {
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
-  <a href="#hero" class="nav-logo">אל הים</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">אודות</a></li>
-    <li><a href="#activities">פעילויות</a></li>
-    <li><a href="#projects">פרויקטים</a></li>
-    <li><a href="#gallery">גלריה</a></li>
-    <li><a href="#testimonials">המלצות</a></li>
-    <li><a href="#contact">צור קשר</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#hero" class="nav-logo" data-i18n="logo">אל הים</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-i18n="nav_about">אודות</a></li>
+      <li><a href="#activities" data-i18n="nav_activities">פעילויות</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">פרויקטים</a></li>
+      <li><a href="#gallery" data-i18n="nav_gallery">גלריה</a></li>
+      <li><a href="#testimonials" data-i18n="nav_testimonials">המלצות</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">צור קשר</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('he')">עב</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-slider" id="heroSlider">
     <div class="hero-slide active">
-      <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM.jpeg" alt="SUP בשקיעה">
+      <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM.jpeg" alt="SUP at sunset">
     </div>
     <div class="hero-slide">
-      <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (1).jpeg" alt="הפרויקט הוורוד">
+      <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (1).jpeg" alt="Pink Project">
     </div>
     <div class="hero-slide">
-      <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (4).jpeg" alt="ילדים גולשים">
+      <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (4).jpeg" alt="Kids surfing">
     </div>
     <div class="hero-slide">
-      <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (2).jpeg" alt="מדריך עם ילד גולש">
+      <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (2).jpeg" alt="Instructor with child">
     </div>
     <div class="hero-slide">
-      <img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (6).jpeg" alt="אימון SUP על החוף">
+      <img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (6).jpeg" alt="SUP training">
     </div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>עמותת אל הים</h1>
-    <p class="subtitle">מרכז ימי קהילתי בחוף קרית חיים</p>
-    <p class="location">גלישה &bull; SUP &bull; קייטסרף &bull; קיאק &bull; יוגה &bull; ספורט ימי</p>
+    <h1 data-i18n="hero_title">עמותת אל הים</h1>
+    <p class="subtitle" data-i18n="hero_subtitle">מרכז ימי קהילתי בחוף קרית חיים</p>
+    <p class="location" data-i18n="hero_location">גלישה &bull; SUP &bull; קייטסרף &bull; קיאק &bull; יוגה &bull; ספורט ימי</p>
     <div class="hero-cta">
-      <a href="#activities" class="btn btn-primary">הפעילויות שלנו</a>
-      <a href="#contact" class="btn btn-outline">צרו קשר</a>
+      <a href="#activities" class="btn btn-primary" data-i18n="hero_btn_activities">הפעילויות שלנו</a>
+      <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">צרו קשר</a>
     </div>
   </div>
   <div class="scroll-indicator"><span></span></div>
@@ -825,28 +841,28 @@ section {
   <div class="container">
     <div class="about-grid">
       <div class="about-image reveal">
-        <img src="WhatsApp Image 2026-05-02 at 7.14.12 PM (1).jpeg" alt="מרכז ימי קרית חיים">
+        <img src="WhatsApp Image 2026-05-02 at 7.14.12 PM (1).jpeg" alt="El HaYam Marine Center">
       </div>
       <div class="about-text reveal">
-        <h3>הסיפור שלנו</h3>
-        <p>עמותת אל הים הוקמה מתוך חזון להנגיש את הים לכולם. מתוך אמונה שהים מרפא, מחנך ומחבר &mdash; אנחנו מפעילים מרכז ימי קהילתי ייחודי בחוף קרית חיים, שמשמש בית חם לילדים ונוער בסיכון, חיילים בודדים, מתמודדי PTSD, ניצולות סרטן השד ואנשים עם מוגבלויות.</p>
-        <p>המייסד, ג'ק בן און, חייל בודד לשעבר בגולני, הקים את העמותה מתוך חוויה אישית והבנה עמוקה שספורט ימי יכול לשנות חיים. היום, עם צוות מסור של מדריכים ומתנדבים, אנחנו משרתים מאות משתתפים מדי שבוע.</p>
+        <h3 data-i18n="about_title">הסיפור שלנו</h3>
+        <p data-i18n="about_p1">עמותת אל הים הוקמה מתוך חזון להנגיש את הים לכולם. מתוך אמונה שהים מרפא, מחנך ומחבר &mdash; אנחנו מפעילים מרכז ימי קהילתי ייחודי בחוף קרית חיים, שמשמש בית חם לילדים ונוער בסיכון, חיילים בודדים, מתמודדי PTSD, מחלימות ממחלת סרטן השד ואנשים עם מוגבלויות.</p>
+        <p data-i18n="about_p2">המייסד, ג'ק בן און, חייל בודד לשעבר בגולני, הקים את העמותה מתוך חוויה אישית והבנה עמוקה שספורט ימי יכול לשנות חיים. היום, עם צוות מסור של מדריכים ומתנדבים, אנחנו משרתים מאות משתתפים מדי שבוע.</p>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-number">2019</div>
-            <div class="stat-label">שנת הקמה</div>
+            <div class="stat-label" data-i18n="stat_founded">שנת הקמה</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">250+</div>
-            <div class="stat-label">משתתפים</div>
+            <div class="stat-label" data-i18n="stat_participants">משתתפים</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">13</div>
-            <div class="stat-label">סוגי פעילות</div>
+            <div class="stat-label" data-i18n="stat_activities">סוגי פעילות</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">8+</div>
-            <div class="stat-label">גילאים</div>
+            <div class="stat-label" data-i18n="stat_ages">גילאים</div>
           </div>
         </div>
       </div>
@@ -858,40 +874,40 @@ section {
 <section id="activities">
   <div class="container">
     <div class="section-header reveal">
-      <h2>הפעילויות <span class="accent">שלנו</span></h2>
-      <p>ספורט ימי מגוון לכל הגילאים והרמות &mdash; מקורסים למתחילים ועד אימונים מתקדמים</p>
+      <h2 data-i18n="activities_title">הפעילויות <span class="accent" data-i18n="activities_accent">שלנו</span></h2>
+      <p data-i18n="activities_desc">ספורט ימי מגוון לכל הגילאים והרמות &mdash; מקורסים למתחילים ועד אימונים מתקדמים</p>
     </div>
     <div class="activities-grid">
       <div class="activity-card reveal">
-        <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (1).jpeg" alt="גלישת גלים">
+        <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (1).jpeg" alt="Surfing">
         <div class="activity-card-overlay">
           <div class="activity-icon">🏄</div>
-          <h3>גלישת גלים</h3>
-          <p>קורסי גלישה לכל הגילאים והרמות עם מדריכים מוסמכים</p>
+          <h3 data-i18n="act_surf_title">גלישת גלים</h3>
+          <p data-i18n="act_surf_desc">קורסי גלישה לכל הגילאים והרמות עם מדריכים מוסמכים</p>
         </div>
       </div>
       <div class="activity-card reveal">
         <img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (2).jpeg" alt="SUP">
         <div class="activity-card-overlay">
           <div class="activity-icon">🚣</div>
-          <h3>SUP &mdash; סאפ</h3>
-          <p>חתירה על סאפ בים הפתוח, שיעורים פרטיים וקבוצתיים</p>
+          <h3 data-i18n="act_sup_title">SUP &mdash; סאפ</h3>
+          <p data-i18n="act_sup_desc">חתירה על סאפ בים הפתוח, שיעורים פרטיים וקבוצתיים</p>
         </div>
       </div>
       <div class="activity-card reveal">
-        <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (1).jpeg" alt="קיאק">
+        <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (1).jpeg" alt="Kayak">
         <div class="activity-card-overlay">
           <div class="activity-icon">🛶</div>
-          <h3>קיאקים</h3>
-          <p>שיט קיאקים לילדים ומבוגרים בחוף המוגן</p>
+          <h3 data-i18n="act_kayak_title">קיאקים</h3>
+          <p data-i18n="act_kayak_desc">שיט קיאקים לילדים ומבוגרים בחוף המוגן</p>
         </div>
       </div>
       <div class="activity-card reveal">
-        <img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (3).jpeg" alt="אירועים קהילתיים">
+        <img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (3).jpeg" alt="Community events">
         <div class="activity-card-overlay">
           <div class="activity-icon">🌊</div>
-          <h3>אירועים קהילתיים</h3>
-          <p>ימי כיף, אירועי קיץ, מסיבות חוף ופעילויות למשפחות</p>
+          <h3 data-i18n="act_events_title">אירועים קהילתיים</h3>
+          <p data-i18n="act_events_desc">ימי כיף, אירועי קיץ, מסיבות חוף ופעילויות למשפחות</p>
         </div>
       </div>
     </div>
@@ -902,74 +918,68 @@ section {
 <section id="projects" class="projects-section">
   <div class="container">
     <div class="section-header reveal">
-      <h2>הפרויקטים <span class="accent">הקהילתיים</span></h2>
-      <p>יוזמות חברתיות שמשנות חיים דרך הים</p>
+      <h2 data-i18n="projects_title">הפרויקטים <span class="accent" data-i18n="projects_accent">הקהילתיים</span></h2>
+      <p data-i18n="projects_desc">יוזמות חברתיות שמשנות חיים דרך הים</p>
     </div>
     <div class="projects-scroll">
-      <!-- Pink Project -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (5).jpeg" alt="הפרויקט הוורוד">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (5).jpeg" alt="Pink Project">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-pink">הפרויקט הוורוד</span>
-          <h3>ניצולות סרטן השד</h3>
-          <p>יום ים מיוחד לנשים שהתגברו על סרטן השד &mdash; סאפ, גלישה, יוגה, עיסויים ופינוקים על חוף הים</p>
+          <span class="project-tag tag-pink" data-i18n="proj_pink_tag">הפרויקט הוורוד</span>
+          <h3 data-i18n="proj_pink_title">מחלימות ממחלת סרטן השד</h3>
+          <p data-i18n="proj_pink_desc">יום ים מיוחד לנשים שהתגברו על סרטן השד &mdash; סאפ, גלישה, יוגה, עיסויים ופינוקים על חוף הים</p>
         </div>
       </div>
-      <!-- Lone Soldiers -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.05 PM (3).jpeg" alt="חיילים בודדים">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.05 PM (3).jpeg" alt="Lone Soldiers">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-blue">חיילים בודדים</span>
-          <h3>בית חם לחיילים</h3>
-          <p>ארוחות, ציוד, פעילויות ים ותחושת בית לחיילים בודדים המשרתים באזור</p>
+          <span class="project-tag tag-blue" data-i18n="proj_soldiers_tag">חיילים בודדים</span>
+          <h3 data-i18n="proj_soldiers_title">בית חם לחיילים</h3>
+          <p data-i18n="proj_soldiers_desc">ארוחות, ציוד, פעילויות ים ותחושת בית לחיילים בודדים המשרתים באזור</p>
         </div>
       </div>
-      <!-- PTSD -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (4).jpeg" alt="מתמודדי PTSD">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (4).jpeg" alt="PTSD">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-coral">לוחמי קרב</span>
-          <h3>שיקום מתמודדי PTSD</h3>
-          <p>טיפול בספורט ימי ללוחמי קרב ומתמודדי פוסט-טראומה בשיתוף רוטרי קישון</p>
+          <span class="project-tag tag-coral" data-i18n="proj_ptsd_tag">לוחמי קרב</span>
+          <h3 data-i18n="proj_ptsd_title">שיקום מתמודדי PTSD</h3>
+          <p data-i18n="proj_ptsd_desc">טיפול בספורט ימי ללוחמי קרב ומתמודדי פוסט-טראומה בשיתוף רוטרי קישון</p>
         </div>
       </div>
-      <!-- Children Cancer -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (4).jpeg" alt="גדולים מהחיים">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (4).jpeg" alt="Children Cancer">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-gold">גדולים מהחיים</span>
-          <h3>ילדים חולי סרטן</h3>
-          <p>קורס גלישה וימי כיף לילדים מחלימים מסרטן בשיתוף עמותת גדולים מהחיים</p>
+          <span class="project-tag tag-gold" data-i18n="proj_cancer_tag">גדולים מהחיים</span>
+          <h3 data-i18n="proj_cancer_title">ילדים חולי סרטן</h3>
+          <p data-i18n="proj_cancer_desc">קורס גלישה וימי כיף לילדים מחלימים מסרטן בשיתוף עמותת גדולים מהחיים</p>
         </div>
       </div>
-      <!-- Youth at Risk -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (2).jpeg" alt="נוער בסיכון">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (2).jpeg" alt="Youth at Risk">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-blue">נוער בסיכון</span>
-          <h3>נוער וילדים בסיכון</h3>
-          <p>תוכנית חונכות ים לנוער בסיכון בשיתוף רווחת העיר חיפה ומרכז חרנ"ה</p>
+          <span class="project-tag tag-blue" data-i18n="proj_youth_tag">נוער בסיכון</span>
+          <h3 data-i18n="proj_youth_title">נוער וילדים בסיכון</h3>
+          <p data-i18n="proj_youth_desc">תוכנית חונכות ים לנוער בסיכון בשיתוף רווחת העיר חיפה ומרכז חרנ"ה</p>
         </div>
       </div>
-      <!-- Iron Swords -->
       <div class="project-card reveal">
         <div class="project-card-img">
-          <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (5).jpeg" alt="חרבות ברזל">
+          <img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (5).jpeg" alt="Iron Swords">
         </div>
         <div class="project-card-body">
-          <span class="project-tag tag-coral">חרבות ברזל</span>
-          <h3>משפחות מפונים</h3>
-          <p>פעילויות ים ואירוח משפחות שפונו מביתם בתקופת מלחמת חרבות ברזל</p>
+          <span class="project-tag tag-coral" data-i18n="proj_swords_tag">חרבות ברזל</span>
+          <h3 data-i18n="proj_swords_title">משפחות מפונים</h3>
+          <p data-i18n="proj_swords_desc">פעילויות ים ואירוח משפחות שפונו מביתם בתקופת מלחמת חרבות ברזל</p>
         </div>
       </div>
     </div>
@@ -980,30 +990,30 @@ section {
 <section id="gallery">
   <div class="container">
     <div class="section-header reveal">
-      <h2>הרגעים <span class="accent">שלנו</span></h2>
-      <p>תמונות מהפעילויות, האירועים והפרויקטים</p>
+      <h2 data-i18n="gallery_title">הרגעים <span class="accent" data-i18n="gallery_accent">שלנו</span></h2>
+      <p data-i18n="gallery_desc">תמונות מהפעילויות, האירועים והפרויקטים</p>
     </div>
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (3).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (3).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM.jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (4).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (3).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (1).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (1).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (1).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (4).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM.jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (2).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (2).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (3).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.12 PM.jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM.jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.05 PM (1).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (5).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (2).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.04 PM (3).jpeg" alt="פעילות ים" loading="lazy"></div>
-      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.07 PM.jpeg" alt="פעילות ים" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (3).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (3).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM.jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (4).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.07 PM (3).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (1).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (1).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (1).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (4).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM.jpeg?v=2" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.11 PM (2).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.06 PM (2).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.10 PM (3).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.12 PM.jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM.jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.05 PM (1).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.08 PM (5).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.09 PM (2).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.04 PM (3).jpeg" alt="Sea activity" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="WhatsApp Image 2026-05-02 at 7.14.07 PM.jpeg" alt="Sea activity" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -1012,26 +1022,26 @@ section {
 <section id="testimonials" class="testimonial-section">
   <div class="container">
     <div class="section-header reveal">
-      <h2>אומרים <span class="accent">עלינו</span></h2>
+      <h2 data-i18n="testimonials_title">אומרים <span class="accent" data-i18n="testimonials_accent">עלינו</span></h2>
     </div>
     <div class="testimonial-card reveal">
       <div class="quote-mark">"</div>
-      <blockquote>המקום שלכם מעניק לי שקט ושלווה לכמה שעות בשבוע. אתם פותחים לא רק את דלתות המקום... אתם פותחים את הלב! אתם שם לצידי, מאמינים בי ולא מפחדים ממני.</blockquote>
-      <div class="author">כפיר אייל &mdash; לוחם קרב, מתמודד PTSD</div>
+      <blockquote data-i18n="testimonial_quote">המקום שלכם מעניק לי שקט ושלווה לכמה שעות בשבוע. אתם פותחים לא רק את דלתות המקום... אתם פותחים את הלב! אתם שם לצידי, מאמינים בי ולא מפחדים ממני.</blockquote>
+      <div class="author" data-i18n="testimonial_author">כפיר אייל &mdash; לוחם קרב, מתמודד PTSD</div>
     </div>
 
     <div style="margin-top: 3rem;">
       <div class="section-header reveal">
-        <h2>שותפים <span class="accent">לדרך</span></h2>
+        <h2 data-i18n="partners_title">שותפים <span class="accent" data-i18n="partners_accent">לדרך</span></h2>
       </div>
       <div class="partners-grid reveal">
-        <div class="partner-badge">רוטרי קישון</div>
-        <div class="partner-badge">עמותת גדולים מהחיים</div>
-        <div class="partner-badge">עיריית חיפה &mdash; רווחה</div>
-        <div class="partner-badge">מרכז חרנ"ה</div>
-        <div class="partner-badge">חיל הים</div>
-        <div class="partner-badge">ועד קרית חיים</div>
-        <div class="partner-badge">משרד הביטחון</div>
+        <div class="partner-badge" data-i18n="partner_rotary">רוטרי קישון</div>
+        <div class="partner-badge" data-i18n="partner_gdolim">עמותת גדולים מהחיים</div>
+        <div class="partner-badge" data-i18n="partner_haifa">עיריית חיפה &mdash; רווחה</div>
+        <div class="partner-badge" data-i18n="partner_harna">מרכז חרנ"ה</div>
+        <div class="partner-badge" data-i18n="partner_navy">חיל הים</div>
+        <div class="partner-badge" data-i18n="partner_vaad">ועד קרית חיים</div>
+        <div class="partner-badge" data-i18n="partner_mod">משרד הביטחון</div>
       </div>
     </div>
   </div>
@@ -1041,39 +1051,39 @@ section {
 <section id="contact" class="contact-section">
   <div class="container">
     <div class="section-header reveal">
-      <h2>צרו <span class="accent">קשר</span></h2>
-      <p>מעוניינים להירשם, להתנדב או לשתף פעולה? נשמח לשמוע מכם</p>
+      <h2 data-i18n="contact_title">צרו <span class="accent" data-i18n="contact_accent">קשר</span></h2>
+      <p data-i18n="contact_desc">מעוניינים להירשם, להתנדב או לשתף פעולה? נשמח לשמוע מכם</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div>
-            <h4>טלפון</h4>
+            <h4 data-i18n="contact_phone_label">טלפון</h4>
             <span dir="ltr">050-7160590</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🌐</div>
           <div>
-            <h4>רשתות חברתיות</h4>
-            <span>פייסבוק &bull; אינסטגרם &bull; יוטיוב</span>
+            <h4 data-i18n="contact_social_label">רשתות חברתיות</h4>
+            <span data-i18n="contact_social_value">פייסבוק &bull; אינסטגרם &bull; יוטיוב</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🏢</div>
           <div>
-            <h4>עמותה רשומה</h4>
-            <span>ע.ר. 580677094</span>
+            <h4 data-i18n="contact_reg_label">עמותה רשומה</h4>
+            <span>580677094</span>
           </div>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="event.preventDefault(); var n=this.querySelector('[name=name]').value; var e=this.querySelector('[name=email]').value; var p=this.querySelector('[name=phone]').value; var m=this.querySelector('[name=msg]').value; var body='שם: '+n+'%0Aמייל: '+e+'%0Aטלפון: '+p+'%0A%0A'+m; window.location.href='mailto:Elhyam2019@gmail.com?subject=פנייה מהאתר - '+n+'&body='+body; alert('תודה! הפנייה נשלחת דרך תוכנת המייל שלך.');">
-        <input type="text" name="name" placeholder="שם מלא" required>
-        <input type="email" name="email" placeholder="דוא״ל" required>
-        <input type="tel" name="phone" placeholder="טלפון">
-        <textarea name="msg" placeholder="איך נוכל לעזור?"></textarea>
-        <button type="submit" class="btn btn-primary" style="width:100%;">שליחה</button>
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); var n=this.querySelector('[name=name]').value; var e=this.querySelector('[name=email]').value; var p=this.querySelector('[name=phone]').value; var m=this.querySelector('[name=msg]').value; var body='Name: '+n+'%0AEmail: '+e+'%0APhone: '+p+'%0A%0A'+m; window.location.href='mailto:Elhyam2019@gmail.com?subject=Website Inquiry - '+n+'&body='+body; alert(translations[currentLang].form_thanks);">
+        <input type="text" name="name" data-i18n-placeholder="form_name" placeholder="שם מלא" required>
+        <input type="email" name="email" data-i18n-placeholder="form_email" placeholder="דוא״ל" required>
+        <input type="tel" name="phone" data-i18n-placeholder="form_phone" placeholder="טלפון">
+        <textarea name="msg" data-i18n-placeholder="form_msg" placeholder="איך נוכל לעזור?"></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="form_submit">שליחה</button>
       </form>
     </div>
   </div>
@@ -1087,13 +1097,13 @@ section {
     <a href="https://www.youtube.com/@user-nh1wq1dn8z" target="_blank" class="social-link" title="YouTube">yt</a>
   </div>
   <div class="footer-links">
-    <a href="#about">אודות</a>
-    <a href="#activities">פעילויות</a>
-    <a href="#projects">פרויקטים</a>
-    <a href="#gallery">גלריה</a>
-    <a href="#contact">צור קשר</a>
+    <a href="#about" data-i18n="nav_about">אודות</a>
+    <a href="#activities" data-i18n="nav_activities">פעילויות</a>
+    <a href="#projects" data-i18n="nav_projects">פרויקטים</a>
+    <a href="#gallery" data-i18n="nav_gallery">גלריה</a>
+    <a href="#contact" data-i18n="nav_contact">צור קשר</a>
   </div>
-  <p>&copy; 2026 עמותת אל הים &mdash; מרכז ימי קרית חיים. כל הזכויות שמורות.</p>
+  <p data-i18n="footer_copy">&copy; 2026 עמותת אל הים &mdash; מרכז ימי קרית חיים. כל הזכויות שמורות.</p>
 </footer>
 
 <!-- LIGHTBOX -->
@@ -1103,6 +1113,207 @@ section {
 </div>
 
 <script>
+// ===== TRANSLATIONS =====
+const translations = {
+  he: {
+    logo: 'אל הים',
+    nav_about: 'אודות', nav_activities: 'פעילויות', nav_projects: 'פרויקטים',
+    nav_gallery: 'גלריה', nav_testimonials: 'המלצות', nav_contact: 'צור קשר',
+    hero_title: 'עמותת אל הים',
+    hero_subtitle: 'מרכז ימי קהילתי בחוף קרית חיים',
+    hero_location: 'גלישה &bull; SUP &bull; קייטסרף &bull; קיאק &bull; יוגה &bull; ספורט ימי',
+    hero_btn_activities: 'הפעילויות שלנו', hero_btn_contact: 'צרו קשר',
+    about_title: 'הסיפור שלנו',
+    about_p1: 'עמותת אל הים הוקמה מתוך חזון להנגיש את הים לכולם. מתוך אמונה שהים מרפא, מחנך ומחבר &mdash; אנחנו מפעילים מרכז ימי קהילתי ייחודי בחוף קרית חיים, שמשמש בית חם לילדים ונוער בסיכון, חיילים בודדים, מתמודדי PTSD, מחלימות ממחלת סרטן השד ואנשים עם מוגבלויות.',
+    about_p2: 'המייסד, ג\'ק בן און, חייל בודד לשעבר בגולני, הקים את העמותה מתוך חוויה אישית והבנה עמוקה שספורט ימי יכול לשנות חיים. היום, עם צוות מסור של מדריכים ומתנדבים, אנחנו משרתים מאות משתתפים מדי שבוע.',
+    stat_founded: 'שנת הקמה', stat_participants: 'משתתפים', stat_activities: 'סוגי פעילות', stat_ages: 'גילאים',
+    activities_title: 'הפעילויות ', activities_accent: 'שלנו',
+    activities_desc: 'ספורט ימי מגוון לכל הגילאים והרמות &mdash; מקורסים למתחילים ועד אימונים מתקדמים',
+    act_surf_title: 'גלישת גלים', act_surf_desc: 'קורסי גלישה לכל הגילאים והרמות עם מדריכים מוסמכים',
+    act_sup_title: 'SUP &mdash; סאפ', act_sup_desc: 'חתירה על סאפ בים הפתוח, שיעורים פרטיים וקבוצתיים',
+    act_kayak_title: 'קיאקים', act_kayak_desc: 'שיט קיאקים לילדים ומבוגרים בחוף המוגן',
+    act_events_title: 'אירועים קהילתיים', act_events_desc: 'ימי כיף, אירועי קיץ, מסיבות חוף ופעילויות למשפחות',
+    projects_title: 'הפרויקטים ', projects_accent: 'הקהילתיים',
+    projects_desc: 'יוזמות חברתיות שמשנות חיים דרך הים',
+    proj_pink_tag: 'הפרויקט הוורוד', proj_pink_title: 'מחלימות ממחלת סרטן השד',
+    proj_pink_desc: 'יום ים מיוחד לנשים שהתגברו על סרטן השד &mdash; סאפ, גלישה, יוגה, עיסויים ופינוקים על חוף הים',
+    proj_soldiers_tag: 'חיילים בודדים', proj_soldiers_title: 'בית חם לחיילים',
+    proj_soldiers_desc: 'ארוחות, ציוד, פעילויות ים ותחושת בית לחיילים בודדים המשרתים באזור',
+    proj_ptsd_tag: 'לוחמי קרב', proj_ptsd_title: 'שיקום מתמודדי PTSD',
+    proj_ptsd_desc: 'טיפול בספורט ימי ללוחמי קרב ומתמודדי פוסט-טראומה בשיתוף רוטרי קישון',
+    proj_cancer_tag: 'גדולים מהחיים', proj_cancer_title: 'ילדים חולי סרטן',
+    proj_cancer_desc: 'קורס גלישה וימי כיף לילדים מחלימים מסרטן בשיתוף עמותת גדולים מהחיים',
+    proj_youth_tag: 'נוער בסיכון', proj_youth_title: 'נוער וילדים בסיכון',
+    proj_youth_desc: 'תוכנית חונכות ים לנוער בסיכון בשיתוף רווחת העיר חיפה ומרכז חרנ"ה',
+    proj_swords_tag: 'חרבות ברזל', proj_swords_title: 'משפחות מפונים',
+    proj_swords_desc: 'פעילויות ים ואירוח משפחות שפונו מביתם בתקופת מלחמת חרבות ברזל',
+    gallery_title: 'הרגעים ', gallery_accent: 'שלנו', gallery_desc: 'תמונות מהפעילויות, האירועים והפרויקטים',
+    testimonials_title: 'אומרים ', testimonials_accent: 'עלינו',
+    testimonial_quote: 'המקום שלכם מעניק לי שקט ושלווה לכמה שעות בשבוע. אתם פותחים לא רק את דלתות המקום... אתם פותחים את הלב! אתם שם לצידי, מאמינים בי ולא מפחדים ממני.',
+    testimonial_author: 'כפיר אייל &mdash; לוחם קרב, מתמודד PTSD',
+    partners_title: 'שותפים ', partners_accent: 'לדרך',
+    partner_rotary: 'רוטרי קישון', partner_gdolim: 'עמותת גדולים מהחיים',
+    partner_haifa: 'עיריית חיפה &mdash; רווחה', partner_harna: 'מרכז חרנ"ה',
+    partner_navy: 'חיל הים', partner_vaad: 'ועד קרית חיים', partner_mod: 'משרד הביטחון',
+    contact_title: 'צרו ', contact_accent: 'קשר',
+    contact_desc: 'מעוניינים להירשם, להתנדב או לשתף פעולה? נשמח לשמוע מכם',
+    contact_phone_label: 'טלפון', contact_social_label: 'רשתות חברתיות',
+    contact_social_value: 'פייסבוק &bull; אינסטגרם &bull; יוטיוב',
+    contact_reg_label: 'עמותה רשומה',
+    form_name: 'שם מלא', form_email: 'דוא״ל', form_phone: 'טלפון',
+    form_msg: 'איך נוכל לעזור?', form_submit: 'שליחה',
+    form_thanks: 'תודה! הפנייה נשלחת דרך תוכנת המייל שלך.',
+    footer_copy: '&copy; 2026 עמותת אל הים &mdash; מרכז ימי קרית חיים. כל הזכויות שמורות.'
+  },
+  en: {
+    logo: 'El HaYam',
+    nav_about: 'About', nav_activities: 'Activities', nav_projects: 'Projects',
+    nav_gallery: 'Gallery', nav_testimonials: 'Testimonials', nav_contact: 'Contact',
+    hero_title: 'El HaYam Association',
+    hero_subtitle: 'Community Marine Center at Kiryat Haim Beach',
+    hero_location: 'Surfing &bull; SUP &bull; Kitesurfing &bull; Kayak &bull; Yoga &bull; Water Sports',
+    hero_btn_activities: 'Our Activities', hero_btn_contact: 'Contact Us',
+    about_title: 'Our Story',
+    about_p1: 'El HaYam Association was founded with a vision to make the sea accessible to everyone. Believing that the sea heals, educates, and connects &mdash; we operate a unique community marine center at Kiryat Haim Beach, serving as a warm home for at-risk youth, lone soldiers, PTSD veterans, breast cancer survivors, and people with disabilities.',
+    about_p2: 'The founder, Jack Ben On, a former lone soldier in the Golani Brigade, established the association from personal experience and a deep understanding that water sports can change lives. Today, with a dedicated team of instructors and volunteers, we serve hundreds of participants every week.',
+    stat_founded: 'Year Founded', stat_participants: 'Participants', stat_activities: 'Activity Types', stat_ages: 'Ages',
+    activities_title: 'Our ', activities_accent: 'Activities',
+    activities_desc: 'Diverse water sports for all ages and levels &mdash; from beginner courses to advanced training',
+    act_surf_title: 'Surfing', act_surf_desc: 'Surfing courses for all ages and levels with certified instructors',
+    act_sup_title: 'SUP', act_sup_desc: 'Stand-up paddleboarding in the open sea, private and group lessons',
+    act_kayak_title: 'Kayaking', act_kayak_desc: 'Kayaking for children and adults at the protected beach',
+    act_events_title: 'Community Events', act_events_desc: 'Fun days, summer events, beach parties and family activities',
+    projects_title: 'Community ', projects_accent: 'Projects',
+    projects_desc: 'Social initiatives that change lives through the sea',
+    proj_pink_tag: 'Pink Project', proj_pink_title: 'Breast Cancer Survivors',
+    proj_pink_desc: 'A special sea day for women who overcame breast cancer &mdash; SUP, surfing, yoga, massages and pampering at the beach',
+    proj_soldiers_tag: 'Lone Soldiers', proj_soldiers_title: 'A Home for Soldiers',
+    proj_soldiers_desc: 'Meals, equipment, sea activities and a sense of home for lone soldiers serving in the area',
+    proj_ptsd_tag: 'Combat Veterans', proj_ptsd_title: 'PTSD Rehabilitation',
+    proj_ptsd_desc: 'Water sport therapy for combat veterans and PTSD sufferers in partnership with Rotary Kishon',
+    proj_cancer_tag: 'Larger Than Life', proj_cancer_title: 'Children with Cancer',
+    proj_cancer_desc: 'Surfing course and fun days for children recovering from cancer with the Larger Than Life organization',
+    proj_youth_tag: 'Youth at Risk', proj_youth_title: 'At-Risk Youth & Children',
+    proj_youth_desc: 'Sea mentoring program for at-risk youth in partnership with Haifa City Welfare and Harna Center',
+    proj_swords_tag: 'Iron Swords', proj_swords_title: 'Evacuee Families',
+    proj_swords_desc: 'Sea activities and hosting families evacuated from their homes during the Iron Swords war',
+    gallery_title: 'Our ', gallery_accent: 'Moments', gallery_desc: 'Photos from our activities, events and projects',
+    testimonials_title: 'What They ', testimonials_accent: 'Say',
+    testimonial_quote: 'Your place gives me peace and calm for a few hours each week. You open not just the doors of the center... you open hearts! You are there by my side, believing in me and not afraid of me.',
+    testimonial_author: 'Kfir Eyal &mdash; Combat Veteran, PTSD',
+    partners_title: 'Our ', partners_accent: 'Partners',
+    partner_rotary: 'Rotary Kishon', partner_gdolim: 'Larger Than Life',
+    partner_haifa: 'City of Haifa &mdash; Welfare', partner_harna: 'Harna Center',
+    partner_navy: 'Israeli Navy', partner_vaad: 'Kiryat Haim Council', partner_mod: 'Ministry of Defense',
+    contact_title: 'Contact ', contact_accent: 'Us',
+    contact_desc: 'Interested in signing up, volunteering or partnering? We\'d love to hear from you',
+    contact_phone_label: 'Phone', contact_social_label: 'Social Media',
+    contact_social_value: 'Facebook &bull; Instagram &bull; YouTube',
+    contact_reg_label: 'Registered NPO',
+    form_name: 'Full Name', form_email: 'Email', form_phone: 'Phone',
+    form_msg: 'How can we help?', form_submit: 'Send',
+    form_thanks: 'Thank you! The inquiry is being sent via your email client.',
+    footer_copy: '&copy; 2026 El HaYam Association &mdash; Kiryat Haim Marine Center. All rights reserved.'
+  },
+  fr: {
+    logo: 'El HaYam',
+    nav_about: 'A propos', nav_activities: 'Activités', nav_projects: 'Projets',
+    nav_gallery: 'Galerie', nav_testimonials: 'Témoignages', nav_contact: 'Contact',
+    hero_title: 'Association El HaYam',
+    hero_subtitle: 'Centre nautique communautaire à la plage de Kiryat Haim',
+    hero_location: 'Surf &bull; SUP &bull; Kitesurf &bull; Kayak &bull; Yoga &bull; Sports nautiques',
+    hero_btn_activities: 'Nos activités', hero_btn_contact: 'Contactez-nous',
+    about_title: 'Notre histoire',
+    about_p1: 'L\'association El HaYam a été fondée avec la vision de rendre la mer accessible à tous. Convaincus que la mer guérit, éduque et rassemble &mdash; nous gérons un centre nautique communautaire unique sur la plage de Kiryat Haim, servant de foyer chaleureux pour les jeunes en difficulté, les soldats isolés, les vétérans souffrant de TSPT, les survivantes du cancer du sein et les personnes handicapées.',
+    about_p2: 'Le fondateur, Jack Ben On, ancien soldat solitaire de la brigade Golani, a créé l\'association à partir de son expérience personnelle et d\'une compréhension profonde que les sports nautiques peuvent changer des vies. Aujourd\'hui, avec une équipe dévouée d\'instructeurs et de bénévoles, nous servons des centaines de participants chaque semaine.',
+    stat_founded: 'Année de fondation', stat_participants: 'Participants', stat_activities: 'Types d\'activités', stat_ages: 'Âges',
+    activities_title: 'Nos ', activities_accent: 'Activités',
+    activities_desc: 'Sports nautiques variés pour tous les âges et niveaux &mdash; des cours débutants aux entraînements avancés',
+    act_surf_title: 'Surf', act_surf_desc: 'Cours de surf pour tous les âges et niveaux avec des moniteurs certifiés',
+    act_sup_title: 'SUP', act_sup_desc: 'Stand-up paddle en pleine mer, cours privés et en groupe',
+    act_kayak_title: 'Kayak', act_kayak_desc: 'Kayak pour enfants et adultes sur la plage protégée',
+    act_events_title: 'Événements communautaires', act_events_desc: 'Journées récréatives, événements d\'été, fêtes sur la plage et activités familiales',
+    projects_title: 'Projets ', projects_accent: 'Communautaires',
+    projects_desc: 'Des initiatives sociales qui changent des vies grâce à la mer',
+    proj_pink_tag: 'Projet Rose', proj_pink_title: 'Survivantes du cancer du sein',
+    proj_pink_desc: 'Une journée spéciale à la mer pour les femmes ayant vaincu le cancer du sein &mdash; SUP, surf, yoga, massages et soins sur la plage',
+    proj_soldiers_tag: 'Soldats isolés', proj_soldiers_title: 'Un foyer pour les soldats',
+    proj_soldiers_desc: 'Repas, équipement, activités nautiques et sentiment de chez-soi pour les soldats isolés servant dans la région',
+    proj_ptsd_tag: 'Vétérans', proj_ptsd_title: 'Réhabilitation TSPT',
+    proj_ptsd_desc: 'Thérapie par les sports nautiques pour les vétérans et les personnes souffrant de stress post-traumatique en partenariat avec le Rotary Kishon',
+    proj_cancer_tag: 'Plus grands que la vie', proj_cancer_title: 'Enfants atteints de cancer',
+    proj_cancer_desc: 'Cours de surf et journées récréatives pour les enfants en rémission du cancer avec l\'association Gdolim MeHaHayim',
+    proj_youth_tag: 'Jeunes en difficulté', proj_youth_title: 'Jeunes et enfants en difficulté',
+    proj_youth_desc: 'Programme de mentorat nautique pour les jeunes en difficulté en partenariat avec les services sociaux de Haïfa et le centre Harna',
+    proj_swords_tag: 'Épées de fer', proj_swords_title: 'Familles évacuées',
+    proj_swords_desc: 'Activités nautiques et accueil des familles évacuées de chez elles pendant la guerre des Épées de fer',
+    gallery_title: 'Nos ', gallery_accent: 'Moments', gallery_desc: 'Photos de nos activités, événements et projets',
+    testimonials_title: 'Ils ', testimonials_accent: 'Témoignent',
+    testimonial_quote: 'Votre lieu me donne paix et sérénité pour quelques heures par semaine. Vous n\'ouvrez pas seulement les portes du centre... vous ouvrez les cœurs ! Vous êtes là à mes côtés, vous croyez en moi et vous n\'avez pas peur de moi.',
+    testimonial_author: 'Kfir Eyal &mdash; Vétéran de combat, TSPT',
+    partners_title: 'Nos ', partners_accent: 'Partenaires',
+    partner_rotary: 'Rotary Kishon', partner_gdolim: 'Gdolim MeHaHayim',
+    partner_haifa: 'Ville de Haïfa &mdash; Action sociale', partner_harna: 'Centre Harna',
+    partner_navy: 'Marine israélienne', partner_vaad: 'Conseil de Kiryat Haim', partner_mod: 'Ministère de la Défense',
+    contact_title: 'Contactez-', contact_accent: 'nous',
+    contact_desc: 'Intéressé par une inscription, du bénévolat ou un partenariat ? Nous serions ravis de vous entendre',
+    contact_phone_label: 'Téléphone', contact_social_label: 'Réseaux sociaux',
+    contact_social_value: 'Facebook &bull; Instagram &bull; YouTube',
+    contact_reg_label: 'ONG enregistrée',
+    form_name: 'Nom complet', form_email: 'E-mail', form_phone: 'Téléphone',
+    form_msg: 'Comment pouvons-nous vous aider ?', form_submit: 'Envoyer',
+    form_thanks: 'Merci ! Votre demande est envoyée via votre client de messagerie.',
+    footer_copy: '&copy; 2026 Association El HaYam &mdash; Centre nautique de Kiryat Haim. Tous droits réservés.'
+  }
+};
+
+let currentLang = 'he';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  const html = document.documentElement;
+
+  // Set direction
+  if (lang === 'he') {
+    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'he');
+  } else {
+    html.setAttribute('dir', 'ltr');
+    html.setAttribute('lang', lang);
+  }
+
+  // Update text content
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key]) el.placeholder = t[key];
+  });
+
+  // Update page title
+  if (lang === 'he') document.title = 'עמותת אל הים - מרכז ימי קרית חיים';
+  else if (lang === 'en') document.title = 'El HaYam Association - Kiryat Haim Marine Center';
+  else document.title = 'Association El HaYam - Centre nautique de Kiryat Haim';
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('.lang-btn[onclick*="' + lang + '"]').classList.add('active');
+
+  // Save preference
+  try { localStorage.setItem('elhayam_lang', lang); } catch(e) {}
+}
+
+// Load saved language
+try {
+  const saved = localStorage.getItem('elhayam_lang');
+  if (saved && translations[saved]) setLang(saved);
+} catch(e) {}
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -1122,9 +1333,7 @@ setInterval(() => {
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 reveals.forEach(el => revealObserver.observe(el));
@@ -1140,7 +1349,7 @@ galleryItems.forEach(img => {
   });
 });
 
-// Smooth scroll for nav links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -1152,7 +1361,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Randomize gallery order on load
+// Randomize gallery
 const galleryGrid = document.getElementById('galleryGrid');
 const items = Array.from(galleryGrid.children);
 for (let i = items.length - 1; i > 0; i--) {
