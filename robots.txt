@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elhyam.com/sitemap.xml
