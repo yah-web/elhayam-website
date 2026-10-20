@@ -4,48 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>עמותת אל הים - מרכז ימי קרית חיים</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- SEO Meta Tags -->
-<meta name="description" content="עמותת אל הים - מרכז ימי קהילתי בקרית חיים. פעילויות ימיות, שייט, גלישה, צלילה ותוכניות חינוכיות לילדים ונוער.">
-<meta name="keywords" content="עמותת אל הים, מרכז ימי, קרית חיים, שייט, גלישה, צלילה, פעילויות ימיות, ילדים, נוער, חיפה, ים, El HaYam, sailing, surfing">
-<meta name="author" content="עמותת אל הים">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://elhyam.com/">
-
-<!-- Open Graph / Facebook / WhatsApp -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elhyam.com/">
-<meta property="og:title" content="עמותת אל הים - מרכז ימי קרית חיים">
-<meta property="og:description" content="מרכז ימי קהילתי בקרית חיים. פעילויות ימיות, שייט, גלישה, צלילה ותוכניות חינוכיות לילדים ונוער.">
-<meta property="og:image" content="https://elhyam.com/images/hero1.jpg">
-<meta property="og:locale" content="he_IL">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="og:locale:alternate" content="fr_FR">
-<meta property="og:site_name" content="עמותת אל הים">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="עמותת אל הים - מרכז ימי קרית חיים">
-<meta name="twitter:description" content="מרכז ימי קהילתי בקרית חיים. פעילויות ימיות, שייט, גלישה, צלילה ותוכניות חינוכיות.">
-<meta name="twitter:image" content="https://elhyam.com/images/hero1.jpg">
-
-<!-- Structured Data - NGO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NGO",
-  "name": "עמותת אל הים",
-  "alternateName": "El HaYam Association",
-  "url": "https://elhyam.com",
-  "description": "מרכז ימי קהילתי בקרית חיים - פעילויות ימיות, שייט, גלישה, צלילה ותוכניות חינוכיות לילדים ונוער",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "קרית חיים",
-    "addressRegion": "חיפה",
-    "addressCountry": "IL"
-  }
-}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N11ZBY8PLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N11ZBY8PLG');
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --ocean-deep: #0a1628;
@@ -537,90 +504,93 @@ section {
 
 /* ===== EVENT HIGHLIGHT ===== */
 .event-section {
-  position: relative;
-  z-index: 1;
-  padding: 6rem 0;
+  background: linear-gradient(180deg, transparent, rgba(0,188,212,0.06), transparent);
 }
 .event-highlight {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 2.5rem;
-  backdrop-filter: blur(20px);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .event-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  border-radius: 16px;
-  overflow: hidden;
+  gap: 1rem;
 }
 .event-photos img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.4s, box-shadow 0.4s;
   cursor: pointer;
-  transition: transform 0.4s;
 }
-.event-photos img:hover { transform: scale(1.05); }
-.event-content { padding: 1rem; }
+.event-photos img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(0,188,212,0.2);
+}
+.event-content {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
 .event-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--gold), var(--sunset));
-  color: var(--ocean-deep);
+  background: linear-gradient(135deg, var(--aqua), var(--ocean-light));
+  color: var(--white);
   padding: 0.4rem 1.2rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
 }
 .event-content h3 {
   font-family: 'Rubik', sans-serif;
   font-size: 1.6rem;
   margin-bottom: 1rem;
-  color: var(--aqua-glow);
+  line-height: 1.4;
 }
 .event-content p {
-  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
   line-height: 1.8;
   margin-bottom: 1rem;
 }
 .event-stats {
   display: flex;
   gap: 1.5rem;
-  margin-top: 1.5rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
 }
 .event-stat {
   text-align: center;
-  padding: 1rem;
-  background: rgba(0,188,212,0.1);
-  border-radius: 16px;
-  flex: 1;
-  min-width: 80px;
 }
-.event-stat .number {
-  font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--aqua-glow);
+.event-stat .num {
   display: block;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--aqua), var(--aqua-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .event-stat .label {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
 }
-@media (max-width: 768px) {
-  .event-highlight { grid-template-columns: 1fr; padding: 1.5rem; }
-  .event-photos img { height: 140px; }
-  .event-stats { gap: 0.8rem; }
-  .event-stat .number { font-size: 1.5rem; }
+@media (max-width:900px) {
+  .event-highlight { grid-template-columns: 1fr; }
+}
+@media (max-width:600px) {
+  .event-photos { grid-template-columns: 1fr; }
+  .event-photos img { height: 180px; }
 }
 
 /* ===== GALLERY ===== */
@@ -903,6 +873,257 @@ section {
   .gallery-grid { columns: 2; }
   .activities-grid { grid-template-columns: 1fr; }
   section { padding: 4rem 1rem; }
+  .bt-features { grid-template-columns: 1fr; }
+  .bt-hero-img { min-height: 250px; }
+  .bt-gallery { grid-template-columns: 1fr 1fr; }
+  .bt-cta-buttons { flex-direction: column; align-items: center; }
+}
+
+/* ===== BLUE THERAPY SECTION ===== */
+.blue-therapy-section {
+  background: linear-gradient(180deg, rgba(10,22,40,0.95) 0%, rgba(12,45,94,0.9) 50%, rgba(26,111,181,0.85) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.blue-therapy-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--aqua), var(--aqua-glow), var(--aqua), transparent);
+}
+
+.bt-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.bt-hero-img {
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 350px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,188,212,0.15);
+}
+.bt-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bt-hero-text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.bt-hero-text .bt-subtitle {
+  font-size: 1.1rem;
+  color: var(--aqua-glow);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.bt-hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+}
+.bt-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--aqua), var(--ocean-light));
+  color: var(--white);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.bt-model {
+  margin-bottom: 4rem;
+}
+.bt-model h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.bt-model h3 .accent { color: var(--aqua-glow); }
+
+.bt-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.bt-feature-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+.bt-feature-card:hover {
+  border-color: var(--aqua);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,188,212,0.1);
+}
+.bt-feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.bt-feature-card h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--aqua-glow);
+}
+.bt-feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+}
+
+.bt-activities {
+  margin-bottom: 4rem;
+}
+.bt-activities h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.bt-activities h3 .accent { color: var(--aqua-glow); }
+
+.bt-activities-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.bt-activity-item {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.bt-activity-item:hover {
+  border-color: var(--aqua);
+  transform: translateY(-4px);
+}
+.bt-activity-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.bt-activity-item .bt-act-body {
+  padding: 1.5rem;
+}
+.bt-activity-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.bt-activity-item p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.bt-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+.bt-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.bt-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.bt-gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.bt-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+.bt-cta blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--sand);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.bt-cta .bt-cta-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-inline: auto;
+}
+.bt-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bt-cta-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-family: 'Heebo', sans-serif;
+}
+.bt-btn-shikum {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+}
+.bt-btn-shikum:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,188,212,0.3);
+}
+.bt-btn-mod {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: white;
+}
+.bt-btn-mod:hover {
+  border-color: var(--aqua);
+  transform: translateY(-2px);
+}
+.bt-btn-phone {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+}
+.bt-btn-phone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+}
+
+@media (max-width: 768px) {
+  .bt-intro { grid-template-columns: 1fr; }
+  .bt-activities-list { grid-template-columns: 1fr; }
+  .bt-gallery { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -918,6 +1139,7 @@ section {
       <li><a href="#about" data-i18n="nav_about">אודות</a></li>
       <li><a href="#activities" data-i18n="nav_activities">פעילויות</a></li>
       <li><a href="#projects" data-i18n="nav_projects">פרויקטים</a></li>
+      <li><a href="#blue-therapy" data-i18n="nav_blue_therapy">גלישה טיפולית</a></li>
       <li><a href="#event" data-i18n="nav_event">אירועים</a></li>
       <li><a href="#gallery" data-i18n="nav_gallery">גלריה</a></li>
       <li><a href="#testimonials" data-i18n="nav_testimonials">המלצות</a></li>
@@ -977,13 +1199,14 @@ section {
         <h3 data-i18n="about_title">הסיפור שלנו</h3>
         <p data-i18n="about_p1">עמותת אל הים הוקמה מתוך חזון להנגיש את הים לכולם. מתוך אמונה שהים מרפא, מחנך ומחבר &mdash; אנחנו מפעילים מרכז ימי קהילתי ייחודי בחוף קרית חיים, שמשמש בית חם לילדים ונוער בסיכון, חיילים בודדים, מתמודדי PTSD, מחלימות ממחלת סרטן השד ואנשים עם מוגבלויות.</p>
         <p data-i18n="about_p2">המייסד, ג'ק בן און, חייל בודד לשעבר בגולני, הקים את העמותה מתוך חוויה אישית והבנה עמוקה שספורט ימי יכול לשנות חיים. היום, עם צוות מסור של מדריכים ומתנדבים, אנחנו משרתים מאות משתתפים מדי שבוע.</p>
+        <p>במסגרת תוכנית <a href="#blue-therapy" style="color:var(--aqua-glow);text-decoration:underline;">הגלישה הטיפולית (Blue Therapy)</a> שלנו, אנו מפעילים מודל שיקומי ייחודי ללוחמים, פצועי צה"ל ומתמודדי פוסט-טראומה &mdash; שילוב של ספורט ימי, קהילת עמיתים תומכת וכוח הריפוי הטבעי של הים.</p>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-number">2019</div>
             <div class="stat-label" data-i18n="stat_founded">שנת הקמה</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">500++</div>
+            <div class="stat-number">250+</div>
             <div class="stat-label" data-i18n="stat_participants">משתתפים</div>
           </div>
           <div class="stat-item">
@@ -1116,34 +1339,148 @@ section {
   </div>
 </section>
 
+<!-- BLUE THERAPY -->
+<section id="blue-therapy" class="blue-therapy-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>גלישה טיפולית <span class="accent">Blue Therapy</span></h2>
+      <p>תוכנית שיקום וחוסן קהילתי דרך הים ללוחמים, פצועי צה"ל ומתמודדי פוסט-טראומה</p>
+    </div>
+
+    <!-- Intro -->
+    <div class="bt-intro reveal">
+      <div class="bt-hero-img">
+        <img src="images/blue-therapy/team-photo.jpeg" alt="צוות תוכנית הגלישה הטיפולית של עמותת אל הים" loading="lazy">
+      </div>
+      <div class="bt-hero-text">
+        <span class="bt-badge">Safe Space &bull; מרחב בטוח</span>
+        <h3>יש מקומות שבהם באים להתאמן, ויש את &ldquo;אל הים&rdquo;</h3>
+        <div class="bt-subtitle">בית חם, מרחב בטוח וקהילה מחבקת על החוף</div>
+        <p>המרכז הימי שלנו אינו עוד חוג או מסגרת ספורטיבית חולפת. עבור החיילים בסדיר ובמילואים, פצועי מערכות ישראל והלום הקרב שמגיעים אלינו, המרכז הוא עוגן שיקומי מקיף &mdash; מקום שבו אפשר לפרוק את עומסי החזית והשיגרה, לנשום מחדש ולמצוא שקט נפשי.</p>
+      </div>
+    </div>
+
+    <!-- Model -->
+    <div class="bt-model reveal">
+      <h3>המודל הסוציו-טיפולי שלנו: <span class="accent">למה דווקא ב&ldquo;אל הים&rdquo;?</span></h3>
+      <div class="bt-features">
+        <div class="bt-feature-card">
+          <div class="bt-feature-icon">🤝</div>
+          <h4>תקשורת בגובה העיניים</h4>
+          <p>סביבה מחבקת ונטולת שיפוטיות, המאפשרת למשתתפים להשקיט את עוררות היתר, לווסת את המתח הרגשי ולהרגיש הכי בבית בעולם.</p>
+        </div>
+        <div class="bt-feature-card">
+          <div class="bt-feature-icon">🎓</div>
+          <h4>צוות הדרכה מנוסה ומקצועי</h4>
+          <p>הפעילויות מועברות על ידי מדריכים בוגרים, מוסמכים ומיומנים, בעלי ניסיון רב בהדרכה טיפולית ובליווי אוכלוסיות המתמודדות עם טראומה ופוסט-טראומה.</p>
+        </div>
+        <div class="bt-feature-card">
+          <div class="bt-feature-icon">💪</div>
+          <h4>קהילת עמיתים וערבות הדדית</h4>
+          <p>מעבר לאתגר הספורטיבי, המרכז מייצר קבוצת שווים חזקה. החברות והחיבור שנרקמים על החוף מהווים כתף תומכת, קבוצת שיוך מעצימה ומזרז משמעותי לתהליכי שיקום.</p>
+        </div>
+        <div class="bt-feature-card">
+          <div class="bt-feature-icon">🌊</div>
+          <h4>כוח הריפוי הטבעי של הים</h4>
+          <p>השילוב בין המאמץ הפיזי, העבודה עם הרוח והגלים והשהייה בטבע הפתוח הוכח מדעית ככלי אפקטיבי לשיקום הגוף והנפש.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activities -->
+    <div class="bt-activities reveal">
+      <h3>מה כוללת <span class="accent">הפעילות?</span></h3>
+      <div class="bt-activities-list">
+        <div class="bt-activity-item">
+          <img src="images/blue-therapy/surfing-wave.jpeg" alt="גלישת גלים טיפולית" loading="lazy">
+          <div class="bt-act-body">
+            <h4>שגרה ימית ורצף שיקומי</h4>
+            <p>תוכנית אימונים קבועה בגלישת גלים, סאפ, ווינג וקיאקים, בהתאמה מלאה ליכולות הפיזיות והרגשיות של כל משתתף.</p>
+          </div>
+        </div>
+        <div class="bt-activity-item">
+          <img src="images/blue-therapy/hospitality.jpeg" alt="מעטפת חברתית ואירוח" loading="lazy">
+          <div class="bt-act-body">
+            <h4>מעטפת חברתית משלימה</h4>
+            <p>ימי שיא, סדנאות הנגשה, ארוחות גיבוש ומפגשים קהילתיים על קו המים, המבססים את המרכז כבית קהילתי קבוע.</p>
+          </div>
+        </div>
+        <div class="bt-activity-item">
+          <img src="images/blue-therapy/surf-lesson.jpeg" alt="הנגשה מלאה לספורט ימי" loading="lazy">
+          <div class="bt-act-body">
+            <h4>הנגשה מלאה</h4>
+            <p>המרכז מותאם ומצויד לתמיכה במשתתפים עם מוגבלויות פיזיות, ומספק מענה לוגיסטי להגעה בטוחה ונוחה עד לקו החוף.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="bt-gallery reveal">
+      <div class="bt-gallery-item"><img src="images/blue-therapy/sup-walk.jpeg" alt="הליכה עם סאפ לים" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/sup-group.jpeg" alt="קבוצת סאפ במפרץ חיפה" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/kite-selfie.jpeg" alt="קייטסרפינג בחוף" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/sunset-sup.jpeg" alt="סאפ בשקיעה" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/surfer-board.jpeg" alt="גולש עם גלשן" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/kids-surfing.jpeg" alt="ילדים גולשים בגלים" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/rotary-award.jpeg" alt="טקס הוקרה של רוטרי קישון לעמותת אל הים" loading="lazy"></div>
+      <div class="bt-gallery-item"><img src="images/blue-therapy/sup-silhouettes.jpeg" alt="סאפ בשקיעה מפרץ חיפה" loading="lazy"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bt-cta reveal">
+      <blockquote>&ldquo;הדלתות שלנו פתוחות תמיד. עבור כל חייל, מילואימניק, נכה צה&quot;ל או מתמודד פוסט-טראומה שמחפש לא רק ספורט ימי מקצועי &mdash; אלא מקום אמיתי להשתייך אליו.&rdquo;</blockquote>
+      <p class="bt-cta-sub">ניתן להצטרף לפעילות דרך בית הלוחם או אפליקציית <strong>Shikum.Me</strong> &mdash; האפליקציה הדיגיטלית של אגף השיקום במשרד הביטחון, עם יתרה שנתית של 6,600 &#8362; למימוש ישיר.</p>
+      <div class="bt-cta-buttons">
+        <a href="https://shikumme.co.il/" target="_blank" rel="noopener" class="bt-btn-shikum">Shikum.Me &bull; להורדת האפליקציה</a>
+        <a href="https://shikum.mod.gov.il" target="_blank" rel="noopener" class="bt-btn-mod">משרד הביטחון &bull; אגף שיקום</a>
+        <a href="https://wa.me/9720507160590" target="_blank" rel="noopener" class="bt-btn-phone">WhatsApp &bull; 050-7160590</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- EVENT HIGHLIGHT -->
 <section id="event" class="event-section">
-<div class="container">
-  <div class="section-header reveal">
-    <h2 data-i18n="event_title">אירוע <span class="accent" data-i18n="event_accent">גדולים מהחיים</span></h2>
-    <p data-i18n="event_subtitle">פברואר 2026 &bull; מרכז ימי קרית חיים</p>
-  </div>
-  <div class="event-highlight reveal">
-    <div class="event-photos">
-      <img src="images/event-2026/event1.jpg" alt="Larger Than Life Event" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
-      <img src="images/event-2026/event2.jpg" alt="Larger Than Life Event" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
-      <img src="images/event-2026/event3.jpg" alt="Larger Than Life Event" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
-      <img src="images/event-2026/event4.jpg" alt="Larger Than Life Event" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 data-i18n="event_title">אירוע <span class="accent" data-i18n="event_accent">גדולים מהחיים</span></h2>
+      <p data-i18n="event_subtitle">פברואר 2026 &bull; מרכז ימי קרית חיים</p>
     </div>
-    <div class="event-content">
-      <span class="event-badge" data-i18n="event_badge">השנה השביעית!</span>
-      <h3 data-i18n="event_heading">חיוכים על המים &mdash; איחוד המשפחה</h3>
-      <p data-i18n="event_desc1">עמותת אל הים יחד עם קהילת הגולשים מארחים בהמון אהבה את משפחות גדולים מהחיים לחגיגה של החלמה וניצחון. 30 משפחות מקרית חיים והסביבה יצאו ליום של חוויה ימית מלאת חיוכים — גלישת גלים, משחקי מים, וסדנאות ארוחת בוקר.</p>
-      <p data-i18n="event_desc2">250 מתנדבים מהקהילה הגיעו לסייע — מדריכי גלישה, צוותי הצלה, אנשי חינוך ומשפחות שהגיעו לתת יד לילדים והורים.</p>
-      <div class="event-stats">
-        <div class="event-stat"><span class="number">30</span><span class="label" data-i18n="event_stat_families">משפחות</span></div>
-        <div class="event-stat"><span class="number">150</span><span class="label" data-i18n="event_stat_kids">ילדים</span></div>
-        <div class="event-stat"><span class="number">250</span><span class="label" data-i18n="event_stat_volunteers">מתנדבים</span></div>
-        <div class="event-stat"><span class="number">7</span><span class="label" data-i18n="event_stat_years">שנים</span></div>
+    <div class="event-highlight reveal">
+      <div class="event-photos">
+        <img src="images/event-2026/event1.jpg" alt="Larger Than Life Event" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
+        <img src="images/event-2026/event2.jpg" alt="Surfing activity" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
+        <img src="images/event-2026/event3.jpg" alt="Families at the beach" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
+        <img src="images/event-2026/event4.jpg" alt="Community celebration" loading="lazy" onclick="document.getElementById('lightboxImg').src=this.src;document.getElementById('lightbox').classList.add('active')">
+      </div>
+      <div class="event-content">
+        <span class="event-badge" data-i18n="event_badge">השנה השביעית!</span>
+        <h3 data-i18n="event_heading">חיוכים על המים &mdash; איחוד המשפחה</h3>
+        <p data-i18n="event_desc1">עמותת אל הים יחד עם קהילת הגולשים מארחים בהמון אהבה את משפחות &laquo;גדולים מהחיים&raquo; לחגיגה של החלמה וניצחון &mdash; לאחד את המשפחה, לחזור לחייך ולשמוח יחד.</p>
+        <p data-i18n="event_desc2">ילדים גיבורים מנצחים את הקשיים יחד עם המשפחה &mdash; גלישה, פעילות ימית, כיף ואהבה ללא גבולות. ללא תקציבים, נטו לב ליבם של הקהילה, 200% נתינה.</p>
+        <div class="event-stats">
+          <div class="event-stat">
+            <span class="num">30</span>
+            <span class="label" data-i18n="event_stat_families">משפחות</span>
+          </div>
+          <div class="event-stat">
+            <span class="num">150</span>
+            <span class="label" data-i18n="event_stat_kids">ילדים ובני משפחה</span>
+          </div>
+          <div class="event-stat">
+            <span class="num">250</span>
+            <span class="label" data-i18n="event_stat_volunteers">מתנדבים</span>
+          </div>
+          <div class="event-stat">
+            <span class="num">7</span>
+            <span class="label" data-i18n="event_stat_years">שנים רצופות</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- GALLERY -->
@@ -1278,7 +1615,7 @@ const translations = {
   he: {
     logo: 'אל הים',
     nav_about: 'אודות', nav_activities: 'פעילויות', nav_projects: 'פרויקטים',
-    nav_gallery: 'גלריה', nav_testimonials: 'המלצות', nav_contact: 'צור קשר',
+    nav_event: 'אירועים', nav_gallery: 'גלריה', nav_testimonials: 'המלצות', nav_contact: 'צור קשר',
     hero_title: 'עמותת אל הים',
     hero_subtitle: 'מרכז ימי קהילתי בחוף קרית חיים',
     hero_location: 'גלישה &bull; SUP &bull; קייטסרף &bull; קיאק &bull; יוגה &bull; ספורט ימי',
@@ -1307,6 +1644,14 @@ const translations = {
     proj_youth_desc: 'תוכנית חונכות ים לנוער בסיכון בשיתוף רווחת העיר חיפה ומרכז חרנ"ה',
     proj_swords_tag: 'חרבות ברזל', proj_swords_title: 'משפחות מפונים',
     proj_swords_desc: 'פעילויות ים ואירוח משפחות שפונו מביתם בתקופת מלחמת חרבות ברזל',
+    event_title: 'אירוע ', event_accent: 'גדולים מהחיים',
+    event_subtitle: 'פברואר 2026 &bull; מרכז ימי קרית חיים',
+    event_badge: 'השנה השביעית!',
+    event_heading: 'חיוכים על המים &mdash; איחוד המשפחה',
+    event_desc1: 'עמותת אל הים יחד עם קהילת הגולשים מארחים בהמון אהבה את משפחות &laquo;גדולים מהחיים&raquo; לחגיגה של החלמה וניצחון &mdash; לאחד את המשפחה, לחזור לחייך ולשמוח יחד.',
+    event_desc2: 'ילדים גיבורים מנצחים את הקשיים יחד עם המשפחה &mdash; גלישה, פעילות ימית, כיף ואהבה ללא גבולות. ללא תקציבים, נטו לב ליבם של הקהילה, 200% נתינה.',
+    event_stat_families: 'משפחות', event_stat_kids: 'ילדים ובני משפחה',
+    event_stat_volunteers: 'מתנדבים', event_stat_years: 'שנים רצופות',
     gallery_title: 'הרגעים ', gallery_accent: 'שלנו', gallery_desc: 'תמונות מהפעילויות, האירועים והפרויקטים',
     testimonials_title: 'אומרים ', testimonials_accent: 'עלינו',
     testimonial_quote: 'המקום שלכם מעניק לי שקט ושלווה לכמה שעות בשבוע. אתם פותחים לא רק את דלתות המקום... אתם פותחים את הלב! אתם שם לצידי, מאמינים בי ולא מפחדים ממני.',
@@ -1324,24 +1669,11 @@ const translations = {
     form_msg: 'איך נוכל לעזור?', form_submit: 'שליחה',
     form_thanks: 'תודה! הפנייה נשלחת דרך תוכנת המייל שלך.',
     footer_copy: '&copy; 2026 עמותת אל הים &mdash; מרכז ימי קרית חיים. כל הזכויות שמורות.'
-  ,
-    nav_event: "אירועים",
-    event_title: "אירוע",
-    event_accent: "גדולים מהחיים",
-    event_subtitle: "פברואר 2026 • מרכז ימי קרית חיים",
-    event_badge: "השנה השביעית!",
-    event_heading: "חיוכים על המים — איחוד המשפחה",
-    event_desc1: "עמותת אל הים יחד עם קהילת הגולשים מארחים בהמון אהבה את משפחות גדולים מהחיים לחגיגה של החלמה וניצחון. 30 משפחות מקרית חיים והסביבה יצאו ליום של חוויה ימית מלאת חיוכים.",
-    event_desc2: "250 מתנדבים מהקהילה הגיעו לסייע — מדריכי גלישה, צוותי הצלה, אנשי חינוך ומשפחות שהגיעו לתת יד לילדים והורים.",
-    event_stat_families: "משפחות",
-    event_stat_kids: "ילדים",
-    event_stat_volunteers: "מתנדבים",
-    event_stat_years: "שנים"
   },
   en: {
     logo: 'El HaYam',
     nav_about: 'About', nav_activities: 'Activities', nav_projects: 'Projects',
-    nav_gallery: 'Gallery', nav_testimonials: 'Testimonials', nav_contact: 'Contact',
+    nav_event: 'Events', nav_gallery: 'Gallery', nav_testimonials: 'Testimonials', nav_contact: 'Contact',
     hero_title: 'El HaYam Association',
     hero_subtitle: 'Community Marine Center at Kiryat Haim Beach',
     hero_location: 'Surfing &bull; SUP &bull; Kitesurfing &bull; Kayak &bull; Yoga &bull; Water Sports',
@@ -1370,6 +1702,14 @@ const translations = {
     proj_youth_desc: 'Sea mentoring program for at-risk youth in partnership with Haifa City Welfare and Harna Center',
     proj_swords_tag: 'Iron Swords', proj_swords_title: 'Evacuee Families',
     proj_swords_desc: 'Sea activities and hosting families evacuated from their homes during the Iron Swords war',
+    event_title: 'Larger Than ', event_accent: 'Life Event',
+    event_subtitle: 'February 2026 &bull; Kiryat Haim Marine Center',
+    event_badge: '7th Year!',
+    event_heading: 'Smiles on the Water &mdash; Family Reunion',
+    event_desc1: 'El HaYam Association together with the surfing community hosts the &laquo;Larger Than Life&raquo; families with so much love &mdash; a celebration of recovery and victory, reuniting families, bringing back smiles and joy.',
+    event_desc2: 'Brave children overcoming challenges together with their families &mdash; surfing, water activities, fun and boundless love. No budgets, purely from the heart of the community, 200% giving.',
+    event_stat_families: 'Families', event_stat_kids: 'Children & Family',
+    event_stat_volunteers: 'Volunteers', event_stat_years: 'Consecutive Years',
     gallery_title: 'Our ', gallery_accent: 'Moments', gallery_desc: 'Photos from our activities, events and projects',
     testimonials_title: 'What They ', testimonials_accent: 'Say',
     testimonial_quote: 'Your place gives me peace and calm for a few hours each week. You open not just the doors of the center... you open hearts! You are there by my side, believing in me and not afraid of me.',
@@ -1387,24 +1727,11 @@ const translations = {
     form_msg: 'How can we help?', form_submit: 'Send',
     form_thanks: 'Thank you! The inquiry is being sent via your email client.',
     footer_copy: '&copy; 2026 El HaYam Association &mdash; Kiryat Haim Marine Center. All rights reserved.'
-  ,
-    nav_event: "Events",
-    event_title: "Event",
-    event_accent: "Larger Than Life",
-    event_subtitle: "February 2026 • Kiryat Haim Sea Center",
-    event_badge: "7th Year!",
-    event_heading: "Smiles on the Water — Family Reunion",
-    event_desc1: "El HaYam together with the surfing community hosted the Larger Than Life families for a celebration of recovery and triumph. 30 families from Kiryat Haim and surroundings came together for a day of ocean fun — surfing, water slides, and a breakfast by the shore.",
-    event_desc2: "250 community volunteers came to help — surf instructors, rescue teams, educators, and families that came to support the children and parents.",
-    event_stat_families: "Families",
-    event_stat_kids: "Children",
-    event_stat_volunteers: "Volunteers",
-    event_stat_years: "Years"
   },
   fr: {
     logo: 'El HaYam',
     nav_about: 'A propos', nav_activities: 'Activités', nav_projects: 'Projets',
-    nav_gallery: 'Galerie', nav_testimonials: 'Témoignages', nav_contact: 'Contact',
+    nav_event: 'Événement', nav_gallery: 'Galerie', nav_testimonials: 'Témoignages', nav_contact: 'Contact',
     hero_title: 'Association El HaYam',
     hero_subtitle: 'Centre nautique communautaire à la plage de Kiryat Haim',
     hero_location: 'Surf &bull; SUP &bull; Kitesurf &bull; Kayak &bull; Yoga &bull; Sports nautiques',
@@ -1433,6 +1760,14 @@ const translations = {
     proj_youth_desc: 'Programme de mentorat nautique pour les jeunes en difficulté en partenariat avec les services sociaux de Haïfa et le centre Harna',
     proj_swords_tag: 'Épées de fer', proj_swords_title: 'Familles évacuées',
     proj_swords_desc: 'Activités nautiques et accueil des familles évacuées de chez elles pendant la guerre des Épées de fer',
+    event_title: 'Événement ', event_accent: 'Plus Grands que la Vie',
+    event_subtitle: 'Février 2026 &bull; Centre nautique de Kiryat Haim',
+    event_badge: '7ème année !',
+    event_heading: 'Sourires sur l\'eau &mdash; Réunion familiale',
+    event_desc1: 'L\'association El HaYam et la communauté des surfeurs accueillent avec amour les familles de &laquo;Plus Grands que la Vie&raquo; &mdash; une célébration de guérison et de victoire, réunissant les familles, retrouvant les sourires et la joie.',
+    event_desc2: 'Des enfants courageux surmontant les défis avec leurs familles &mdash; surf, activités nautiques, plaisir et amour sans limites. Sans budget, purement du cœur de la communauté, 200% de don.',
+    event_stat_families: 'Familles', event_stat_kids: 'Enfants et famille',
+    event_stat_volunteers: 'Bénévoles', event_stat_years: 'Années consécutives',
     gallery_title: 'Nos ', gallery_accent: 'Moments', gallery_desc: 'Photos de nos activités, événements et projets',
     testimonials_title: 'Ils ', testimonials_accent: 'Témoignent',
     testimonial_quote: 'Votre lieu me donne paix et sérénité pour quelques heures par semaine. Vous n\'ouvrez pas seulement les portes du centre... vous ouvrez les cœurs ! Vous êtes là à mes côtés, vous croyez en moi et vous n\'avez pas peur de moi.',
@@ -1450,19 +1785,6 @@ const translations = {
     form_msg: 'Comment pouvons-nous vous aider ?', form_submit: 'Envoyer',
     form_thanks: 'Merci ! Votre demande est envoyée via votre client de messagerie.',
     footer_copy: '&copy; 2026 Association El HaYam &mdash; Centre nautique de Kiryat Haim. Tous droits réservés.'
-  ,
-    nav_event: "Événements",
-    event_title: "Événement",
-    event_accent: "Plus Grand Que La Vie",
-    event_subtitle: "Février 2026 • Centre Maritime Kiryat Haim",
-    event_badge: "7ème Année !",
-    event_heading: "Sourires sur l'Eau — Réunion de Famille",
-    event_desc1: "El HaYam et la communauté de surfeurs ont accueilli les familles de Plus Grand Que La Vie pour une célébration de guérison et de victoire. 30 familles de Kiryat Haim se sont réunies pour une journée de plaisirs maritimes — surf, toboggans aquatiques et petit-déjeuner au bord de la mer.",
-    event_desc2: "250 bénévoles de la communauté sont venus aider — moniteurs de surf, équipes de sauvetage, éducateurs et familles venues soutenir les enfants et les parents.",
-    event_stat_families: "Familles",
-    event_stat_kids: "Enfants",
-    event_stat_volunteers: "Bénévoles",
-    event_stat_years: "Années"
   }
 };
 
